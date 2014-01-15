@@ -1,5 +1,6 @@
 # device_network_site
 
+
 A simple node server that implements an API to GET and POST data about device nodes on a network.
 
 ## API Structure
