@@ -45,7 +45,7 @@ MongoClient.connect("mongodb://ammanvedi:poopoo12@ds057528.mongolab.com:57528/se
     db.createCollection('devices', function(err, collection) {
 
 
-  var document = {device_id:req.query.d_id, name:req.query.d_name, status:req.query.d_status};
+    	var document = {device_id:req.query.d_id, name:req.query.d_name, status:req.query.d_status};
 collection.insert(document, function(err, record){});
 
 res.send("done");

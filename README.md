@@ -55,6 +55,7 @@ example query : /register?d_id=5&d_name=alan&d_status=ON
 ```javascript
 $ git clone https://github.com/ammanvedi/device_network_site.git d_n_s
 $ cd d_n_s
+$ npm install // install dependancies 
 $ node app
 ```
 
