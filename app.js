@@ -39,19 +39,13 @@ app.get('/users', user.list);
 
 app.post('/register', function(req, res){
 
-
-
-
-
-
-
-		MongoClient.connect("mongodb://ammanvedi:poopoo12@ds057528.mongolab.com:57528/seeder-dev", function(err, db) {
+MongoClient.connect("mongodb://ammanvedi:poopoo12@ds057528.mongolab.com:57528/seeder-dev", function(err, db) {
   if(!err) {
     console.log("database : connected to MongoDB");
     db.createCollection('devices', function(err, collection) {
 
 
-    	var document = {device_id:req.query.d_id, name:req.query.d_name, status:req.query.d_status};
+  var document = {device_id:req.query.d_id, name:req.query.d_name, status:req.query.d_status};
 collection.insert(document, function(err, record){});
 
 res.send("done");
