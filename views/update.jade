@@ -1,0 +1,11 @@
+extends layout
+
+block content
+	h1= DEVICEID
+	p update device #{DEVICEID}
+	form(method="post" target="/update_device")
+		input(type="text" name="dev_name" value= name)
+		input(type="text" name="dev_dataset" value= dataset)
+		input(type="text" name="dev_pointer" value= pointer)
+		input(type="text" name="dev_hub_id" value= hub)
+		input(type="submit" value="update")
