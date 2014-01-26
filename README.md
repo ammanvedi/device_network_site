@@ -1,5 +1,8 @@
 # device_network_site
 
+![webserver with MBED device hub reporting the stsus of its collection nodes](http://i.imgur.com/6vk3y96.png "MBED and server")
+
+webserver with MBED device hub reporting the stsus of its collection nodes
 
 A simple node server that implements an API to GET and POST data about device nodes on a network.
 
