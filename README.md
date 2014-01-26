@@ -21,26 +21,15 @@ example query : /devices?id=10
 example response : 
 
 ```json
-
 [
-  {
-    "_id": "52d6ae40e4b0a51e3c5e084c",
-    "device_id": "3",
-    "status": "OFF",
-    "name": "node 3"
-  },
-  {
-    "_id": "52d6adfce4b0a51e3c5e0848",
-    "device_id": "1",
-    "status": "ON",
-    "name": "node 1"
-  },
-  {
-    "_id": "52d6ae2ee4b0a51e3c5e084b",
-    "device_id": "2",
-    "status": "ON",
-    "name": "node 2"
-  }
+-{
+_id: "52e43052712d1c0000b4cdb9",
+device_id: "30",
+device_name: "EUSTON LONDON",
+device_dataset: "{HELLO!}",
+device_pointer: "1",
+device_hub_id: "1"
+}
 ]
 ```
 
