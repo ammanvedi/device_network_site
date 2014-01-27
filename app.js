@@ -266,3 +266,170 @@ app.get('/devices', function (req, res) {
 http.createServer(app).listen(app.get('port'), function () {
     console.log('Started server on port :' + app.get('port'));
 });
+
+
+
+
+
+
+
+
+/* THE MBED CODE THAT WORKS WITH THIS server
+
+
+#include "mbed.h"
+#include "EthernetNetIf.h"
+#include "HTTPClient.h"
+#include "NTPClient.h"
+#include "HTTPServer.h"
+#include "RPCFunction.h"
+#include <sstream>
+#include "xbee.h"
+#include "xbeeFrame.h"
+#include "EthernetInterface.h"
+
+
+
+#define HOSTNAME "HUB-01"
+#define DEVICENAME "ADAM"
+
+
+
+EthernetNetIf eth(HOSTNAME);
+HTTPClient http;
+NTPClient ntp;
+Ticker pull_ticker;
+xbeeFrame xbee(p9,p10,p11);
+
+const char dest_address[8] = {0x00, 0x13, 0xA2, 0x00, 0x40, 0x9B, 0x6D, 0xB0};
+
+char send_data[50] = "xbee button";
+
+
+using namespace std;
+
+
+void pull_updates(){
+    
+    HTTPText a_txt;
+    
+    HTTPResult rs = http.get("192.168.0.4:3000/pull_updates", &a_txt);
+    if (rs==HTTP_OK) {
+        printf("Result ok : %s (code : %d )\n\r", a_txt.gets(), rs);
+    } else {
+        printf("Error %s\n\r", a_txt.gets());
+    }
+    
+    char id[30] = "";
+    char new_msg[50] = "";
+    
+    sscanf((char *)a_txt.gets(), "%s %s", id, new_msg);
+    if(strlen(new_msg) == 0){
+        printf("no data\n\r");
+        return;
+        }else{
+            printf("update device %s with string %s\n\r", id, new_msg);
+            }
+        
+        char to_send[100];
+        char* p = to_send;
+        char* r = send_data;
+        while(*r)
+            *p++ = *r++;
+        *p++ = ' ';
+        r = new_msg;
+        while(*r)
+            *p++ = *r++;
+        *p = '\0';
+        
+        
+ 
+        char data_buf[50];    
+        xbee.InitFrame();
+        xbee.SetDestination((unsigned char *)dest_address);
+        xbee.SetPayload(to_send);
+        xbee.AssembleFrame();
+        xbee.SendFrame();
+   
+   
+           for(int i = 0; i<2; i++)
+        {
+            xbee.ReceiveFrame(data_buf, 500);
+            if(xbee.frameReceived)
+            {
+                xbee.frameReceived = 0;
+                if(xbee.GetType() == TX_STATUS)
+                {
+                    if(xbee.GetStatus() == 0)
+                        printf("Send success!\n\r");
+                    else
+                        printf("Send failed :(\n\r");
+                }
+                else if (xbee.GetType() == RX_PACKET_64)
+                    printf("Received data: %s\n\r", data_buf);
+            }
+        }        
+    
+}
+
+int main() {
+    
+
+    printf("Try starting the program with the network disconnected and then connect after a few timeouts reported\n\n\r");
+    EthernetErr ethErr;
+    int count = 0;
+    do {
+        printf("Setting up %d...\n\r", ++count);
+        ethErr = eth.setup();
+        if (ethErr) printf("Timeout\n\r", ethErr);
+    } while (ethErr != ETH_OK);
+
+
+    printf("Connected OK\n\r");
+    const char* hwAddr = eth.getHwAddr();
+
+    IpAddr ethIp = eth.getIp();
+    printf("IP address : %d.%d.%d.%d\n\r", ethIp[0], ethIp[1], ethIp[2], ethIp[3]);
+    
+    char ip_buffer[20];
+    sprintf(ip_buffer, "%d.%d.%d.%d", ethIp[0], ethIp[1], ethIp[2], ethIp[3]);
+    
+    //the hub will register itself with the server
+     HTTPMap msg;
+     
+     stringstream url;
+     url << "192.168.0.4:3000/hubconnect?h_id=" << HOSTNAME << "&h_name=" << DEVICENAME << "&h_ip=" << ip_buffer;
+     const std::string uri = url.str();
+     
+     printf("query server : %s \n\r", uri);
+  
+   HTTPResult r1 = http.post(uri.c_str(),msg,NULL); 
+  if( r1 == HTTP_OK )
+  {
+    printf("Hub %s registered with server (code : %d )\n\r", HOSTNAME, r1);
+  }
+  else
+  {
+    printf("Could not register, error : %d\n\r", r1);
+  }
+  
+ 
+  
+
+    printf("\nHTTPClient get...\n");
+    HTTPText txt;
+    HTTPResult r = http.get("192.168.0.4:3000/devices", &txt);
+    if (r==HTTP_OK) {
+        printf("Result ok : %s (code : %d )\n\r", txt.gets(), r);
+    } else {
+        printf("Error %s\n", txt.gets());
+    }
+    
+    //begin polling the server for updates to the devices
+    
+    pull_ticker.attach(&pull_updates, 5.0);
+
+
+}
+
+*/
