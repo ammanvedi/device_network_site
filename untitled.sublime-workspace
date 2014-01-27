@@ -1,0 +1,864 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"upd",
+				"update_String"
+			],
+			[
+				"up",
+				"update_String"
+			],
+			[
+				"update",
+				"update_id"
+			],
+			[
+				"st",
+				"status"
+			],
+			[
+				"updat",
+				"updatables"
+			],
+			[
+				"re",
+				"result"
+			],
+			[
+				"id",
+				"d_id"
+			],
+			[
+				"draw",
+				"drawGraph"
+			],
+			[
+				"rep",
+				"repeat"
+			],
+			[
+				"back",
+				"background-repeat"
+			],
+			[
+				"bac",
+				"background-position"
+			],
+			[
+				"graph",
+				"graph_canvas"
+			],
+			[
+				"ne",
+				"next_page_idx"
+			],
+			[
+				"ta",
+				"target"
+			],
+			[
+				"get",
+				"get_next_page"
+			],
+			[
+				"add",
+				"add_results"
+			],
+			[
+				"next",
+				"next_page_idx"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"mar",
+				"margin-right"
+			],
+			[
+				"marg",
+				"margin-left"
+			],
+			[
+				"searc",
+				"search_results_holder"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"paren",
+				"parentElement"
+			],
+			[
+				"parse",
+				"parseInt"
+			],
+			[
+				"gr",
+				"graph_top_margin"
+			],
+			[
+				"gra",
+				"graph_left_margin"
+			],
+			[
+				"margi",
+				"margin-right"
+			],
+			[
+				"test",
+				"test_nodes"
+			],
+			[
+				"detail",
+				"detail_image"
+			],
+			[
+				"diff",
+				"diff_y"
+			],
+			[
+				"lab",
+				"label_threshold"
+			],
+			[
+				"la",
+				"label_threshold"
+			],
+			[
+				"node",
+				"node_detail_pane"
+			],
+			[
+				"remove",
+				"remove_details"
+			],
+			[
+				"paddin",
+				"padding"
+			],
+			[
+				"showin",
+				"showing_details"
+			],
+			[
+				"show",
+				"showing_details"
+			],
+			[
+				"app",
+				"appendTo"
+			],
+			[
+				"displa",
+				"displayY"
+			],
+			[
+				"att",
+				"attr"
+			],
+			[
+				"attri",
+				"attribs"
+			],
+			[
+				"forma",
+				"formattedUrl"
+			],
+			[
+				"arti",
+				"article_dropper"
+			],
+			[
+				"dra",
+				"drawGraph"
+			],
+			[
+				"out",
+				"out_x"
+			],
+			[
+				"b",
+				"background-color"
+			],
+			[
+				"mouse",
+				"mousemove"
+			],
+			[
+				"is",
+				"is_adding_article"
+			],
+			[
+				"sear",
+				"search_results_holder"
+			],
+			[
+				"json",
+				"json_objects"
+			],
+			[
+				"v",
+				"val"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"init",
+				"initiatePullGraph"
+			],
+			[
+				"db",
+				"db_push_graph"
+			],
+			[
+				"save",
+				"savegraph_nodes"
+			],
+			[
+				"to",
+				"to_send_edges"
+			],
+			[
+				"list",
+				"listen"
+			],
+			[
+				"lis",
+				"listen"
+			],
+			[
+				"link",
+				"link"
+			],
+			[
+				"attr",
+				"attribs"
+			],
+			[
+				"ou",
+				"out_y"
+			],
+			[
+				"ra",
+				"ratio_display_x"
+			],
+			[
+				"clien",
+				"clientX"
+			],
+			[
+				"g_",
+				"g_w"
+			],
+			[
+				"ans",
+				"ans_y"
+			],
+			[
+				"min",
+				"min_x"
+			],
+			[
+				"max_",
+				"max_x"
+			],
+			[
+				"sig",
+				"sigInst"
+			],
+			[
+				"backgrou",
+				"background-image"
+			],
+			[
+				"border-r",
+				"border-radius"
+			],
+			[
+				"te",
+				"text-decoration"
+			],
+			[
+				"border-bo",
+				"border-bottom-width"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"registration",
+				"registration_tbl"
+			],
+			[
+				"qu",
+				"query"
+			],
+			[
+				"registrat",
+				"registration_tbl"
+			],
+			[
+				"company",
+				"companyname"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"border",
+				"border-width"
+			],
+			[
+				"padding",
+				"padding-top"
+			],
+			[
+				"sh",
+				"shout"
+			],
+			[
+				"con",
+				"controls"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app.js",
+			"settings":
+			{
+				"buffer_size": 6928,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "db/databaseInteraction.js",
+			"settings":
+			{
+				"buffer_size": 913,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/update.jade",
+			"settings":
+			{
+				"buffer_size": 364,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/index.jade",
+			"settings":
+			{
+				"buffer_size": 70,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"set syntax ja",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"set syntax css",
+				"Set Syntax: CSS"
+			],
+			[
+				"set",
+				"Set Syntax: Python"
+			],
+			[
+				"set sy",
+				"Set Syntax: Python"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"",
+				"Set Syntax: JavaScript (Rails)"
+			],
+			[
+				"packa",
+				"Preferences: Browse Packages"
+			],
+			[
+				"Package Control: dis",
+				"Package Control: Disable Package"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib2,os; pf='Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); open( os.path.join( ipp, pf), 'wb' ).write( urllib2.urlopen( 'http://sublime.wbond.net/' +pf.replace( ' ','%20' )).read()); print( 'Please restart Sublime Text to finish installation')",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			"\"theme\": \"Soda Light.sublime-theme\",",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/user/Documents/IOT/site/README.md",
+		"/Users/user/Documents/IOT/site/routes/index.js",
+		"/Users/user/Desktop/js-mindmap/style.css",
+		"/Users/user/Documents/cs/COMP2013/Seeder/seeder-code/public/javascripts/sigma_v1/build/sigma.min.js",
+		"/Users/user/Documents/cs/COMP2013/Seeder/seeder-code/public/javascripts/explorehandler.js",
+		"/Users/user/Documents/cs/COMP2013/Seeder/seeder-code/public/javascripts/buildtabs.js",
+		"/Users/user/Documents/cs/COMP2013/Seeder/seeder-code/routes/index.js",
+		"/Users/user/Documents/cs/COMP2013/Seeder/seeder-code/routes/explore.js",
+		"/Users/user/Documents/cs/COMP2013/Seeder/seeder-code/public/javascripts/sigma_js/sigma.js/src/core/plotter.js",
+		"/Users/user/Documents/cs/COMP2013/Seeder/seeder-code/public/javascripts/sigma_js/sigma.js/src/core/graph.js",
+		"/Users/user/Documents/cs/COMP2013/Seeder/seeder-code/public/javascripts/sigma_js/sigma.js/src/core/mousecaptor.js",
+		"/Users/user/Documents/cs/COMP2013/Seeder/seeder-code/public/stylesheets/style.css",
+		"/Users/user/Documents/cs/COMP2013/Seeder/seeder-code/views/explore.jade",
+		"/Users/user/Documents/cs/COMP2013/Seeder/seeder-code/public/javascripts/graphhandler.js",
+		"/Users/user/Documents/cs/COMP2013/Seeder/seeder-code/package.json",
+		"/Users/user/Documents/cs/COMP2013/Seeder/seeder-code/views/layout.jade",
+		"/Users/user/Documents/cs/COMP2013/Seeder/seeder-code/views/index.jade",
+		"/Users/user/Documents/cs/COMP2013/Seeder/seeder-code/views/form.jade",
+		"/Users/user/Documents/cs/COMP2013/Seeder/seeder-code/app.js",
+		"/Users/user/Documents/cs/COMP2013/coursework3/drawTurtle.js",
+		"/Users/user/Documents/cs/COMP2013/coursework3-site/style.css",
+		"/Users/user/Documents/cs/COMP2013/coursework3-site/index.html",
+		"/Applications/MAMP/htdocs/personal/login/VIEWS/index.ejs",
+		"/Applications/MAMP/htdocs/personal/login/VIEWS/head.ejs",
+		"/Applications/MAMP/htdocs/personal/login/VIEWS/so.json",
+		"/Applications/MAMP/htdocs/personal/login/VIEWS/graphscript.ejs",
+		"/Applications/MAMP/htdocs/personal/login/server.js",
+		"/Applications/MAMP/htdocs/personal/login/graphing.js",
+		"/Applications/MAMP/htdocs/personal/login/sigma.min.js",
+		"/Users/user/Desktop/stack",
+		"/Users/user/Documents/important stuff/idea for website",
+		"/Users/user/Desktop/winter/stl.css",
+		"/Users/user/Desktop/winter/index.html",
+		"/Users/user/Desktop/Site/style.css",
+		"/Users/user/Desktop/Site/index.php",
+		"/Users/user/Desktop/Host: sql4.freemysqlhosting.net",
+		"/Users/user/Desktop/idea for website",
+		"/Users/user/Desktop/winter/style.css",
+		"/Users/user/Desktop/portfolio/stl.css",
+		"/Users/user/Desktop/portfolio/index.html",
+		"/Applications/MAMP/htdocs/personal/shorthought/ststyle.css",
+		"/Applications/MAMP/htdocs/personal/shorthought/index.php",
+		"/scripts/newgitrepo.sh",
+		"/Applications/MAMP/htdocs/registration/style.css",
+		"/Applications/MAMP/htdocs/index.html",
+		"/Applications/MAMP/htdocs/index.php",
+		"/Users/user/Desktop/new git repo.sh",
+		"/Users/user/Desktop/go to web root.sh",
+		"/Users/user/Desktop/MAMP.txt",
+		"/Users/user/Desktop/commit.sh",
+		"/Applications/MAMP/htdocs/registration/index.php",
+		"/Library/WebServer/Documents/index.php",
+		"/Users/user/Desktop/scholar.py",
+		"/Users/user/Desktop/Site/registration/index.php",
+		"/Users/user/Cloud Drive/WELCOME TO THE ROBOTS DOCUMENT PLACE",
+		"/Users/user/Downloads/sample/index.html",
+		"/Users/user/Desktop/test.js",
+		"/Users/user/Downloads/sample/slotted_disk.stl",
+		"/Users/user/Desktop/portfolio/bootstrap-3.0.0/examples/grid/grid.css",
+		"/Users/user/Documents/lol.html",
+		"/Users/user/Documents/cs/COMP2009/2009 to do list 1",
+		"/Users/user/Desktop/portfolio/bootstrap/css/bootstrap.css",
+		"/Users/user/Desktop/portfolio/bootstrap/css/bootstrap.min.css",
+		"/Users/user/Documents/cs/COMP2008/Databases CW1/answers/queries. txt",
+		"/Users/user/Documents/cs/Databases CW1/answers/queries. txt",
+		"/Users/user/Documents/cs/2009 to do list 1"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"dev_id",
+			"body",
+			"addno",
+			"add",
+			"s",
+			"refresh",
+			"draw",
+			"bind",
+			"overnode",
+			"overnodes",
+			"draw",
+			"mouseroot",
+			"80*ratio",
+			"wheel",
+			"ZoomTo",
+			"wheel",
+			"btn_search",
+			"/>',",
+			"uppercase",
+			"detail_image",
+			"img",
+			"#input_searcharticles",
+			"move",
+			"drag",
+			"nodesCtx",
+			"draw",
+			"addnode",
+			"move",
+			"moveto",
+			"zoom",
+			"zoomto",
+			"console.log",
+			");\n",
+			"is_add",
+			"overn",
+			"fish",
+			"background",
+			"consol",
+			"left",
+			"remove",
+			"overnode",
+			"}).",
+			"cons",
+			"over",
+			"link",
+			"addNode",
+			">'",
+			"',",
+			"innerhtm",
+			"downhandler",
+			"drag",
+			"dom",
+			"mousemove",
+			"moousemove",
+			"iternodes",
+			"getid",
+			"getnodes",
+			"graph",
+			"graph.",
+			"nodes",
+			"getnodes",
+			"shape",
+			"attr",
+			"addnode",
+			"node",
+			"ratio",
+			"goto",
+			"drawnode",
+			"move",
+			"movehan",
+			"move",
+			"drag",
+			"startinterpolate",
+			"rati",
+			"wheel",
+			"getnode",
+			"console",
+			"margin",
+			"startin",
+			"whee",
+			"scroll",
+			"console.log",
+			"max_x",
+			"graph",
+			"max_x",
+			"max",
+			"rescale",
+			"min_x",
+			"resca",
+			"rea",
+			"rescale",
+			"translate",
+			"resca",
+			"displayx",
+			"drawnode",
+			"draw",
+			"node['x']",
+			"displayx",
+			"mouse",
+			"div",
+			"12px",
+			"addlight"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"article",
+			"section"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6928,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								368,
+								368
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "db/databaseInteraction.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 913,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								874,
+								874
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "views/update.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 364,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								309,
+								309
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "views/index.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 70,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								70,
+								70
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "untitled.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
