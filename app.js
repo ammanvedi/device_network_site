@@ -8,10 +8,23 @@ var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 var MongoClient = require('mongodb').MongoClient;
+var WebSocketServer = require('ws').Server;
+var wss = new WebSocketServer({port: 8080});
 
 var app = express();
 
 var updatables = new Array();
+
+var Device_Map = new Object();
+
+Device_Map[30] ={
+                    device_id: 30,
+                    device_name: "ADAM",
+                    device_dataset: "{HELLO WORLD!}",
+                    device_pointer: 1,
+                    device_hub_id: 1
+                };
+console.log(Device_Map[30]);
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -32,6 +45,46 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 }
+
+wss.on('connection', function(ws) {
+
+//create an array here 
+ 
+    ws.on('message', function(message) {
+
+        //recieving a result of the command
+        if(message == 'GET_CMD_REQS'){
+            //return  all the commands that are destined for the nodes
+        }
+
+
+        if(message == 'PU'){
+            console.log('pull updates');
+           
+
+var update_String  = '';
+
+updatables.forEach(function(entry) {
+
+update_String += entry.update_id + ' ' + entry.update_text;
+    
+});
+
+if(update_String == ''){
+    ws.send('NODATA');
+}else{
+    ws.send(update_String);
+}
+
+updatables = new Array();
+
+
+
+        }
+
+    });
+
+});
 
 
 database.databaseget('hello');
@@ -54,70 +107,34 @@ app.post('/hubconnect', function (req, res) {
 
 app.get('/update_device', function (req, res){
 
-
-
-
-
-        MongoClient.connect("mongodb://ammanvedi:poopoo12@ds057528.mongolab.com:57528/seeder-dev", function (err, db) {
-            if (!err) {
-                //res.status(200);
-                console.log("database : connected to device network database");
-                db.createCollection('devices', function (err, collection) {
-
-                    collection.find({
-                        device_id: req.query.update_id
-                    }).toArray(function (err, result) {
-                        console.log(result[0]);
-
-
+var dev = Device_Map[req.query.update_id];
                         //res.send(JSON.stringify(result));
-                        res.render('update', { DEVICEID: result[0].device_id, name: result[0].device_name
-                                                        , dataset: result[0].device_dataset, pointer: result[0].device_pointer, hub: result[0].device_hub_id});
+    res.render('update', { DEVICEID: dev.device_id, name: dev.device_name
+                                                        , dataset: dev.device_dataset, pointer: dev.device_pointer, hub: dev.device_hub_id});
                         
-
-
-                    });
-                });
-            }
-        });  
-
 
 
 });
 
 
 app.post('/update_device', function (req, res){
-        MongoClient.connect("mongodb://ammanvedi:poopoo12@ds057528.mongolab.com:57528/seeder-dev", function (err, db) {
-        if (!err) {
-            res.status(200);
-            console.log("database : connected to MongoDB");
-            db.createCollection('devices', function (err, collection) {
 
-                console.log('ID : ' + req.body.DEVICEID + ' ' + req.query.dev_id);
-
-                var document = {
+                var update_document = {
                     device_id: req.query.update_id,
                     device_name: req.body.dev_name,
                     device_dataset: req.body.dev_dataset,
                     device_pointer: req.body.dev_pointer,
                     device_hub_id: req.body.dev_hub_id
                 };
-                collection.update({device_id: req.query.update_id}, document,function (err, result){
-                    if(!err){
-                        console.log(result);
+
+                Device_Map[req.query.update_id] = update_document;
+
                         if(updatables.indexOf(req.query.update_id) > -1){
                             console.log('update of node already pending...');
                         }else{
                             console.log('pushing data for update of ' + req.query.update_id + ' to pending stack...');
                             updatables.push({update_id: req.query.update_id, update_text: req.body.dev_dataset});
                         }
-
-                        
-                    }
-                });
-            });
-        }
-    });
 
 res.end();
 
@@ -276,61 +293,63 @@ http.createServer(app).listen(app.get('port'), function () {
 
 /* THE MBED CODE THAT WORKS WITH THIS server
 
-
 #include "mbed.h"
-#include "EthernetNetIf.h"
-#include "HTTPClient.h"
-#include "NTPClient.h"
-#include "HTTPServer.h"
-#include "RPCFunction.h"
-#include <sstream>
+#include "EthernetInterface.h"
+#include <stdio.h>
+#include <string.h>
+#include "Websocket.h"
+#include "Updateable.h"
+#include "ASyncTicker.h"
 #include "xbee.h"
 #include "xbeeFrame.h"
-#include "EthernetInterface.h"
+#include <ctype.h>
+#define PORT   80
 
 
-
-#define HOSTNAME "HUB-01"
-#define DEVICENAME "ADAM"
-
-
-
-EthernetNetIf eth(HOSTNAME);
-HTTPClient http;
-NTPClient ntp;
-Ticker pull_ticker;
+EthernetInterface ethernet;
+Websocket ws("ws://192.168.0.4:8080/");
 xbeeFrame xbee(p9,p10,p11);
-
 const char dest_address[8] = {0x00, 0x13, 0xA2, 0x00, 0x40, 0x9B, 0x6D, 0xB0};
+char send_data[50] = "xbee string";
 
-char send_data[50] = "xbee button";
+void pull_requests(){
 
-
-using namespace std;
-
+}
 
 void pull_updates(){
+         char str[100];
+         char id[30];
+         char new_msg[50];
+    // string with a message
+        sprintf(str, "PU");
+        ws.send(str);
     
-    HTTPText a_txt;
-    
-    HTTPResult rs = http.get("192.168.0.4:3000/pull_updates", &a_txt);
-    if (rs==HTTP_OK) {
-        printf("Result ok : %s (code : %d )\n\r", a_txt.gets(), rs);
-    } else {
-        printf("Error %s\n\r", a_txt.gets());
-    }
-    
-    char id[30] = "";
-    char new_msg[50] = "";
-    
-    sscanf((char *)a_txt.gets(), "%s %s", id, new_msg);
-    if(strlen(new_msg) == 0){
-        printf("no data\n\r");
-        return;
-        }else{
-            printf("update device %s with string %s\n\r", id, new_msg);
-            }
+        // clear the buffer and wait a sec...
         
+            
+        memset(str, 0, 100);
+        wait(0.5f);
+    
+        // websocket server should echo whatever we sent it
+        if (ws.read(str)) {
+            memset(id,0,30);
+            memset(new_msg, 0, 50);
+            printf("msg form svr: %s\n\r", str);
+            sscanf((char *)str, "%s %[^\t]", id, new_msg);
+
+            printf("the id : %s will update to : %s\n\r", id, new_msg);
+            
+            
+            //send string to xbee HERE
+        if(strlen(new_msg) == 0)
+        {
+            printf("nothing to update, better luck next time! (svr response: %s)\n\r", id);
+            return;
+        }else{
+            //data was revieved
+            printf("id :  %s  string: %s (original: %s) \n\r", id, new_msg, str);
+        }
+            
         char to_send[100];
         char* p = to_send;
         char* r = send_data;
@@ -340,14 +359,14 @@ void pull_updates(){
         r = new_msg;
         while(*r)
             *p++ = *r++;
+        *p++ = '\r';
         *p = '\0';
         
-        
- 
         char data_buf[50];    
         xbee.InitFrame();
         xbee.SetDestination((unsigned char *)dest_address);
         xbee.SetPayload(to_send);
+        printf("sending payload: %s\n\r", to_send);
         xbee.AssembleFrame();
         xbee.SendFrame();
    
@@ -369,67 +388,51 @@ void pull_updates(){
                     printf("Received data: %s\n\r", data_buf);
             }
         }        
-    
+
+        }
+            
+            
+        
+
 }
 
-int main() {
-    
-
-    printf("Try starting the program with the network disconnected and then connect after a few timeouts reported\n\n\r");
-    EthernetErr ethErr;
-    int count = 0;
-    do {
-        printf("Setting up %d...\n\r", ++count);
-        ethErr = eth.setup();
-        if (ethErr) printf("Timeout\n\r", ethErr);
-    } while (ethErr != ETH_OK);
 
 
-    printf("Connected OK\n\r");
-    const char* hwAddr = eth.getHwAddr();
+int main ()
+{
 
-    IpAddr ethIp = eth.getIp();
-    printf("IP address : %d.%d.%d.%d\n\r", ethIp[0], ethIp[1], ethIp[2], ethIp[3]);
-    
-    char ip_buffer[20];
-    sprintf(ip_buffer, "%d.%d.%d.%d", ethIp[0], ethIp[1], ethIp[2], ethIp[3]);
-    
-    //the hub will register itself with the server
-     HTTPMap msg;
-     
-     stringstream url;
-     url << "192.168.0.4:3000/hubconnect?h_id=" << HOSTNAME << "&h_name=" << DEVICENAME << "&h_ip=" << ip_buffer;
-     const std::string uri = url.str();
-     
-     printf("query server : %s \n\r", uri);
-  
-   HTTPResult r1 = http.post(uri.c_str(),msg,NULL); 
-  if( r1 == HTTP_OK )
-  {
-    printf("Hub %s registered with server (code : %d )\n\r", HOSTNAME, r1);
-  }
-  else
-  {
-    printf("Could not register, error : %d\n\r", r1);
-  }
-  
+    ethernet.init();    // connect with DHCP
+    int ret_val = ethernet.connect();
  
-  
-
-    printf("\nHTTPClient get...\n");
-    HTTPText txt;
-    HTTPResult r = http.get("192.168.0.4:3000/devices", &txt);
-    if (r==HTTP_OK) {
-        printf("Result ok : %s (code : %d )\n\r", txt.gets(), r);
+    if (0 == ret_val) {
+        printf("IP Address: %s\n\r", ethernet.getIPAddress());
     } else {
-        printf("Error %s\n", txt.gets());
+        error("ethernet failed to connect: %d.\n\r", ret_val);
     }
     
-    //begin polling the server for updates to the devices
+    int interval = 5;
     
-    pull_ticker.attach(&pull_updates, 5.0);
+    ws.connect();
+    
+    Timer timer;
+    timer.start();
 
+    //every <interval> seconds call to the server to pull updates
+    
+    while(true){
+        if(timer.read() >= interval){
+            //perform checks
+            pull_updates();
+            timer.reset();
+            timer.start();
+        }
+    }
+    
+    //pull_updates();
+        ws.close();
 
 }
+
+
 
 */
