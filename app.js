@@ -71,7 +71,7 @@ wss.on('connection', function(ws) {
 
         if(message == 'REG_HUB'){
             //the first 
-        }
+        } 
 
 
         if(message == 'PU'){

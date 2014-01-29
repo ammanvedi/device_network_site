@@ -43,6 +43,15 @@ body {
 
 }
 
+#fruit_update{
+	width: 100%;
+	height: auto;
+	margin-left: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: #000;
+}
+
 #device_hub_holder h1{
 font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
 font-weight: bold;

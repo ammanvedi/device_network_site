@@ -18,8 +18,17 @@ block content
 			input(type="text" name="dev_name" value= name)
 			br
 			label(for="dev_dataset") Display String : 
-			input(type="text" name="dev_dataset" value= dataset)
+			input#dataset(type="text" name="dev_dataset" value= dataset)
 			br
+			#fruit_update
+				select#fruit_select
+					option(value="Apple") Apple
+					option(value="Orange") Orange
+					option(value="Apricot") Apricot
+					option(value="Kiwi") Kiwi
+				input#price_box(type="text" name="dev_fruit_price" value="$0.00")
+				input#add_fruit_btn(type="button" value="add")
+				input#clear_fruit_btn(type="button" value="clear")
 			label(for="dev_pointer") Data Pointer : 
 			input(type="text" name="dev_pointer" value= pointer)
 			br
