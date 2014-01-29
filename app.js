@@ -16,10 +16,18 @@ var app = express();
 var updatables = new Array();
 
 var Device_Map = new Object();
+var Hub_Map = new Object();
+
+Hub_Map[1] = {
+    hub_id: 1,
+    hub_mac_addr: "AA:BB:CC:DD:EE:FF:GG:HH", 
+    hub_ip_addr: "192.168.0.100",
+    hub_name: "mbed-EVE"
+}
 
 Device_Map[30] ={
                     device_id: 30,
-                    device_name: "ADAM",
+                    device_name: "msp430-ADAM",
                     device_dataset: "{HELLO WORLD!}",
                     device_pointer: 1,
                     device_hub_id: 1
@@ -49,12 +57,20 @@ if ('development' == app.get('env')) {
 wss.on('connection', function(ws) {
 
 //create an array here 
+
+
  
     ws.on('message', function(message) {
+
+
 
         //recieving a result of the command
         if(message == 'GET_CMD_REQS'){
             //return  all the commands that are destined for the nodes
+        }
+
+        if(message == 'REG_HUB'){
+            //the first 
         }
 
 
@@ -109,8 +125,10 @@ app.get('/update_device', function (req, res){
 
 var dev = Device_Map[req.query.update_id];
                         //res.send(JSON.stringify(result));
-    res.render('update', { DEVICEID: dev.device_id, name: dev.device_name
-                                                        , dataset: dev.device_dataset, pointer: dev.device_pointer, hub: dev.device_hub_id});
+    res.render('update', {hubcount: Object.keys(Hub_Map).length, devcount: Object.keys(Device_Map).length, DEVICEID: dev.device_id, name: dev.device_name
+                                                        , dataset: dev.device_dataset, pointer: dev.device_pointer, hub: dev.device_hub_id
+                                                        , hub_name: Hub_Map[dev.device_hub_id].hub_name, hub_id: Hub_Map[dev.device_hub_id].hub_id
+                                                        ,hub_mac_addr: Hub_Map[dev.device_hub_id].hub_mac_addr, hub_ip_addr: Hub_Map[dev.device_hub_id].hub_ip_addr});
                         
 
 
