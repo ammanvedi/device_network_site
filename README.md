@@ -1,6 +1,6 @@
 # Network Hub Server
 
-![webserver with MBED device hub reporting the stsus of its collection nodes](http://i.imgur.com/aYOY0eV.png "MBED and server")
+![webserver with MBED device hub reporting the stsus of its collection nodes](http://imgur.com/ASw7cDp.png "MBED and server")
 
 A NodeJS webserver that provides a HTTP API as well as socket connections to ARM-MBED microcontrollers located on the local network or internet. The server allows a user to interact with a bluetooth low energy broadcast network that is usong the ARM-MBED as a router.
 
