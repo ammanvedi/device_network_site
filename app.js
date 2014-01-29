@@ -208,6 +208,9 @@ app.post('/register', function (req, res) {
                     device_pointer: -1,
                     device_hub_id: req.query.d_hub_id
                 };
+
+                Device_Map[req.query.d_id] = document;
+
                 collection.insert(document, function (err, record) {
 
                     console.log('added');
