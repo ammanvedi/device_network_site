@@ -1,20 +1,18 @@
-# device_network_site
+# Network Hub Server
 
-![webserver with MBED device hub reporting the stsus of its collection nodes](http://i.imgur.com/6vk3y96.png "MBED and server")
+![webserver with MBED device hub reporting the stsus of its collection nodes](http://i.imgur.com/aYOY0eV.png "MBED and server")
 
-webserver with MBED device hub reporting the stsus of its collection nodes
+A NodeJS webserver that provides a HTTP API as well as socket connections to ARM-MBED microcontrollers located on the local network or internet. The server allows a user to interact with a bluetooth low energy broadcast network that is usong the ARM-MBED as a router.
 
-A simple node server that implements an API to GET and POST data about device nodes on a network.
+This server was written for the ARM Internet-Of-Things competition
 
-## API Structure
+## HTTP API Structure
 
-GET requests can be sent to /devices
 
-| Parameter     | Type          |
-| ------------- |:-------------:|
-| id          | int|
-
-requests to the root url /devices will return all of the devices in a JSON array.
+| URL          |Method          | Parameters | Description     
+| ------------- |:-------------:|---------:|----------:|
+| /devices| GET         | id  | returns JSON array of all devices if id not specified |
+|/register| POST| d_id, d_name, d_hub_id| allows for a new (MSP430/Bluetooth) node to be identified by the server
 
 example query : /devices?id=10
 
@@ -33,17 +31,18 @@ device_hub_id: "1"
 ]
 ```
 
-POST requests can be sent to /register
+## Socket Message Schema
 
-| Parameter     | Type          |
-| ------------- |:-------------:|
-| d_id          | int|
-| d_name        | string     |
-| d_status      | string (on/off)|
+The HTTP api is useful for one-time events (registering nodes/hubs). Other events that need to be checked for regularly are handled by web sockets. 
 
-example query : /register?d_id=5&d_name=alan&d_status=ON
+the following outlines the messages recieved on the SERVER-side, sent from the (mbed) HUB-side
 
-## Running the code
+| Message          |Description          | Response |
+| ------------- |:-------------:|---------:|
+| "PU"| Pull Updates - the hub is requesting any new data that needs to be forwarded to the node network        | a string formatted "DEVICE_ID {UPDATE_DATA}"  | returns JSON array of all devices if id not specified |
+|"GET_CMD_REQS"| Get Command Requests - the hub is checking if there are any pending data requests that need to be sent to nodes| reaponds with a string in the format "DEVICE_ID COMMAND_REQUEST"
+
+## Running the server
 
 ```javascript
 $ git clone https://github.com/ammanvedi/device_network_site.git d_n_s
@@ -53,6 +52,14 @@ $ node app
 ```
 
 the app will run at localhost:3000
+
+## MBED Code
+
+the file main.cpp contains the basic code for the MBED microcontroller so it can communicate with the server over ethernet, the code repository is located [here](https://mbed.org/users/ammanvedi/code/IOT_Sockets/)
+
+
+
+
 
 
 
