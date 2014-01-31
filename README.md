@@ -31,16 +31,39 @@ device_hub_id: "1"
 ]
 ```
 
-## Socket Message Schema
+## Socket Message Schema / Packet Format
 
 The HTTP api is useful for one-time events (registering nodes/hubs). Other events that need to be checked for regularly are handled by web sockets. 
 
-the following outlines the messages recieved on the SERVER-side, sent from the (mbed) HUB-side
+Sockets use a packet format to transport data; 
 
-| Message          |Description          | Response |
-| ------------- |:-------------:|---------:|
-| "PU"| Pull Updates - the hub is requesting any new data that needs to be forwarded to the node network        | a string formatted "DEVICE_ID {UPDATE_DATA}"  | returns JSON array of all devices if id not specified |
-|"GET_CMD_REQS"| Get Command Requests - the hub is checking if there are any pending data requests that need to be sent to nodes| reaponds with a string in the format "DEVICE_ID COMMAND_REQUEST"
+
+```javascript
+{
+	"TYPE":"REQUEST",
+	"ORIGIN":"CLIENT",
+	"ID":"SOMERANDOMHASH",
+	"DATA":"xbee button",
+	"STATUS":"0"
+}
+```
+
+#### TYPE : UPDATE | RESPONSE | REQUEST
+Type defines the overall purpose of the request, request and response are self explanatory. UPDATE will apply to the repeated calls the MBED makes when checking for updates on node information, as well as repeated client checks for responses to data requests (such as sensor data requests)
+
+#### ORIGIN : SERVER | HUB | CLIENT
+Origin lays out the source of the request, so it can be dealt with appropriately
+
+
+#### ID : (SOME ID)
+The packet ID will mostly apply to sensor data requests, each data request from a client (browser) will have an associated ID that the client application can use in communication with the server when checking for response data.
+
+#### DATA : REQUEST DATA | RESPONSE DATA
+The data that is being sent or returned
+
+
+#### STATUS : (UNFULFILLED) 0 | (FULFILLED) 1
+For client requests, when the client has requested data, their request will be stacked until the MBED receives a response from the bluetooth node in question. When a response is received, the stacked request is marked as fulfilled and the response data added. This allows the server to determine the state of a request when a client (browser) requests the status.
 
 ## Running the server
 
@@ -56,7 +79,6 @@ the app will run at localhost:3000
 ## MBED Code
 
 the file main.cpp contains the basic code for the MBED microcontroller so it can communicate with the server over ethernet, the code repository is located [here](https://mbed.org/users/ammanvedi/code/IOT_Sockets/)
-
 
 
 

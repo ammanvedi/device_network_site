@@ -72,9 +72,7 @@ wss.on('connection', function (ws) {
             var update_String = '';
 
             updatables.forEach(function (entry) {
-
                 update_String += entry.update_id + ' ' + entry.update_text;
-
             });
 
             //define a response object
@@ -84,10 +82,7 @@ wss.on('connection', function (ws) {
             update_response['TYPE'] = 'RESPONSE';
             update_response['ORIGIN'] = 'SERVER';
             update_response['ID'] = 'N/A';
-
             update_response['STATUS'] = 1;
-
-
 
 
             if (update_String == '') {
