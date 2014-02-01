@@ -63,7 +63,7 @@ wss.on('connection', function (ws) {
         var MSG = JSON.parse(message);
         console.log('msg ' + MSG);
 
-
+        //if the server recieves a request from the hub 
         if ((MSG.TYPE == 'UPDATE') && (MSG.ORIGIN == 'HUB')) {
 
             console.log('pull updates');

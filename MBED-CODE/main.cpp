@@ -1,18 +1,43 @@
-
 #include "mbed.h"
 #include "EthernetInterface.h"
 #include <stdio.h>
-#include <string.h>
 #include "Websocket.h"
-#include "Updateable.h"
-#include "ASyncTicker.h"
 #include "xbee.h"
 #include "xbeeFrame.h"
 #include "MbedJSONValue.h"
 #include <ctype.h>
 #include <string>
-
+#include <vector>
 #define PORT 80
+
+
+class device
+{
+private:
+    int ID;
+    const char* ADDRESS;
+ 
+public:
+    device(int _ID, char *_ADDR);
+    std::string SendMessage(std::string message);
+    int GetID()  { return ID; }
+};
+
+device::device(int _ID, char _ADDR[])
+{
+   ID = _ID;
+   ADDRESS = _ADDR;
+}
+
+
+std::string device::SendMessage(std::string message)
+{
+    std::string s = "hello";
+    return s;
+}
+
+
+
 
 // status leds
 // led 1
@@ -30,6 +55,8 @@ xbeeFrame xbee(p9,
                p10,
                p11);
 
+vector<device> Devices;
+
 const char dest_address[8] =
 {
     0x00, 0x13, 0xA2, 0x00, 0x40, 0x9B, 0x6D, 0xB0
@@ -38,6 +65,12 @@ char       send_data[50]   = "xbee string";
 
 void pull_requests()
 {
+}
+
+void init_device_list(){
+
+    Devices.push_back(device(30, dest_address));
+
 }
 
 void pull_updates()

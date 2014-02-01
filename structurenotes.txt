@@ -1,0 +1,12 @@
+MBED class + object structure
+
+repeated operations should be encapsulated into their own methods and ideally related functions into objects, repeated functions will be;
+
+		- concatenating arrays
+		- bluetooth node object
+			- address of device
+			- id of device
+			- sending strings to the XBEE, and getting responses
+					@params
+						String to send
+						Address of device to send to
