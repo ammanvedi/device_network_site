@@ -106,6 +106,13 @@ wss.on('connection', function (ws) {
             for (var i = 0; i < length; i++) {
                 device = JSON.parse(MSG.DEVICES[i]);
                 console.log('--> ' + device.device_name);
+                if(Device_Map[device.device_id])
+                {
+                    console.log('   --> device exists');
+                }else{
+                    console.log('   --> adding device reference');
+                    Device_Map[device.device_id] = device;
+                }
             }
 
         }

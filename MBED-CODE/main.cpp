@@ -7,37 +7,11 @@
 #include "MbedJSONValue.h"
 #include <ctype.h>
 #include <string>
-#include <vector>
+#include "btNode.h"
+#include <map>
+#include <utility>
 #define PORT 80
-
-
-class device
-{
-private:
-    int ID;
-    const char* ADDRESS;
- 
-public:
-    device(int _ID, char *_ADDR);
-    std::string SendMessage(std::string message);
-    int GetID()  { return ID; }
-};
-
-device::device(int _ID, char _ADDR[])
-{
-   ID = _ID;
-   ADDRESS = _ADDR;
-}
-
-
-std::string device::SendMessage(std::string message)
-{
-    std::string s = "hello";
-    return s;
-}
-
-
-
+const std::string HUBID = "1";
 
 // status leds
 // led 1
@@ -48,29 +22,47 @@ DigitalOut led_ethernet(LED1);
 // lit - successful socket connection
 DigitalOut led_socket(LED2);
 
+map<int, btNode> BTnodes;
+
 EthernetInterface ethernet;
 Websocket         ws("ws://192.168.0.4:8080/");
 
-xbeeFrame xbee(p9,
-               p10,
-               p11);
-
-vector<device> Devices;
-
-const char dest_address[8] =
+bool sync_devices()
 {
-    0x00, 0x13, 0xA2, 0x00, 0x40, 0x9B, 0x6D, 0xB0
-};
-char       send_data[50]   = "xbee string";
+    MbedJSONValue sync_data;
 
-void pull_requests()
+    std::string sync_string;
+    
+        // fill the object
+    sync_data["TYPE"]   = "SYNC";
+    sync_data["ORIGIN"] = "HUB";
+    sync_data["ID"]     = "N/A";
+
+    //sync_data["DATA"]   = "N/A";
+    //iterate over local nodes and send node list to svr over socket
+    
+    // map<char, int>::iterator p;
+    
+    int index = 0;
+  
+for (std::map<int, btNode>::iterator it = BTnodes.begin(); it != BTnodes.end(); ++it)
 {
-}
+  MbedJSONValue device = it->second.GetAsJSON();
+  printf("dev : %s\n\r", device.serialize());
+  sync_data["DEVICES"][index] = device.serialize();
+  index++;
+} 
+    
+    sync_data["STATUS"] = "0";
+    
+    sync_string = sync_data.serialize();
+    
+    ws.send((char *)sync_string.c_str());
 
-void init_device_list(){
+    // serialize it into a JSON string
 
-    Devices.push_back(device(30, dest_address));
-
+    
+return true;
 }
 
 void pull_updates()
@@ -115,82 +107,37 @@ void pull_updates()
         MbedJSONValue updt_res;
 
         parse(updt_res, str);
-        printf("msg form svr: %s\n\r", updt_res);
+        printf("> %s from svr with data %s\n\r", updt_res["TYPE"].get<std::string>().c_str(), updt_res["DATA"].get<std::string>().c_str());
         sscanf((char *) updt_res["DATA"].get<std::string>().c_str(), "%s %[^\t]", id, new_msg);
 
-        // printf("the id : %s will update to : %s\n\r", id, new_msg);
         // send string to xbee HERE
         if (strlen(new_msg) == 0)
         {
-            printf("nothing to update, better luck next time! (svr response: %s)\n\r", id);
-
+            printf("--> Nothing to update.\n\r\n\r");
             return;
+        }else{
+            printf("--> id :  %s  string: %s \n\r", id, new_msg);
         }
-        else
-        {
-            // data was revieved
-            printf("id :  %s  string: %s (original: %s) \n\r", id, new_msg, str);
-        }
-
-        char   to_send[100];
-        char * p = to_send;
-        char * r = send_data;
-
-        while (*r)
-        {
-            *p++ = *r++;
-        }
-
-        *p++ = ' ';
-        r    = new_msg;
-
-        while (*r)
-        {
-            *p++ = *r++;
-        }
-
-        *p++ = '\r';
-        *p   = '\0';
-
-        char data_buf[50];
-
-        xbee.InitFrame();
-        xbee.SetDestination((unsigned char *) dest_address);
-        xbee.SetPayload(to_send);
-        printf("sending payload: %s\n\r", to_send);
-        xbee.AssembleFrame();
-        xbee.SendFrame();
-
-        for (int i = 0; i < 2; i++)
-        {
-            xbee.ReceiveFrame(data_buf, 500);
-
-            if (xbee.frameReceived)
-            {
-                xbee.frameReceived = 0;
-
-                if (xbee.GetType() == TX_STATUS)
-                {
-                    if (xbee.GetStatus() == 0)
-                    {
-                        printf("Send success!\n\r");
-                    }
-                    else
-                    {
-                        printf("Send failed :(\n\r");
-                    }
-                }
-                else if (xbee.GetType() == RX_PACKET_64)
-                {
-                    printf("Received data: %s\n\r", data_buf);
-                }
-            }
-        }
+        
+        std::string real_msg(new_msg);
+        
+        btNode bt = BTnodes.find(atoi(id))->second;
+        
+        printf("> Found device with ID : %d\n\r\n\r", bt.getID());
+        
+        std::string result = bt.SendMessage(real_msg);
+        
+        printf("--> xbee response : %s\n\r\n\r", result.c_str());
+        
     }
 }
 
 int main()
 {
+    //add a registered device to the device array
+    btNode b(30, "mp430-adam", HUBID);
+    BTnodes.insert(pair<int, btNode>(30,b));
+    
     led_ethernet = 0;
     led_socket   = 0;
 
@@ -219,6 +166,8 @@ int main()
     Timer timer;
 
     timer.start();
+    
+    sync_devices();
 
     // every <interval> seconds call to the server to pull updates
     while (true)
@@ -231,10 +180,8 @@ int main()
             timer.start();
         }
     }
-
-    // pull_updates();
-    ws.close();
+    //ws.close();
 }
 
 
-//~ Formatted by Jindent --- http://www.jindent.com
+

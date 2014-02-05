@@ -2,12 +2,50 @@
 #include "mbed.h"
 #include "xbee.h"
 #include "xbeeFrame.h"
+#include "MbedJSONValue.h"
 
 const char btNode::ADDRESS[8] = {0x00, 0x13, 0xA2, 0x00, 0x40, 0x9B, 0x6D, 0xB0};
  
-btNode::btNode(int D_ID){
+btNode::btNode(int D_ID, std::string D_NAME, std::string H_ID){
     ID = D_ID;
+    DeviceName = D_NAME;
+    DisplayString = "{Apple:$1;}";
+    HubID = H_ID;
+    
 
+}
+
+MbedJSONValue btNode::GetAsJSON()
+{
+    MbedJSONValue thisnode;
+
+    //std::string s;
+
+    // fill the object
+    thisnode["device_id"]   = ID;
+    thisnode["device_name"] = DeviceName;
+    thisnode["device_dataset"]     = DisplayString;
+    thisnode["device_hub_id"]   = HubID;
+
+    // serialize it into a JSON string
+    //s = request.serialize();
+    
+    return thisnode;
+}
+ 
+std::string btNode::getName()
+{
+    return DeviceName;
+}
+
+std::string btNode::getDisplayString()
+{
+    return DisplayString;
+}
+
+void btNode::setName(std::string newname)
+{
+    DeviceName = newname;
 }
  
 std::string btNode::SendMessage(std::string msg) {
