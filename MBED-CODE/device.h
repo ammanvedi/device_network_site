@@ -12,7 +12,7 @@ std::string device::SendMessage(std::string message)
 {
     std::string s = "hello";
     return s;
-}
+}	
 
 
 

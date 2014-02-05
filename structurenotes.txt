@@ -9,4 +9,3 @@ repeated operations should be encapsulated into their own methods and ideally re
 			- sending strings to the XBEE, and getting responses
 					@params
 						String to send
-						Address of device to send to

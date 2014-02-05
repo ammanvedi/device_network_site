@@ -61,12 +61,12 @@ wss.on('connection', function (ws) {
     ws.on('message', function (message) {
 
         var MSG = JSON.parse(message);
-        console.log('msg ' + MSG);
+        //console.log('msg ' + MSG.TYPE);
 
         //if the server recieves a request from the hub 
         if ((MSG.TYPE == 'UPDATE') && (MSG.ORIGIN == 'HUB')) {
 
-            console.log('pull updates');
+            console.log('> Pull Updates...');
 
 
             var update_String = '';
@@ -96,6 +96,17 @@ wss.on('connection', function (ws) {
             updatables = new Array();
 
 
+
+        }
+
+        if ((MSG.TYPE == 'SYNC') && (MSG.ORIGIN == 'HUB')) {
+
+            console.log('> Syncing Devices...')
+            var length = MSG.COUNT;
+            for (var i = 0; i < length; i++) {
+                device = JSON.parse(MSG.DEVICES[i]);
+                console.log('--> ' + device.device_name);
+            }
 
         }
 
