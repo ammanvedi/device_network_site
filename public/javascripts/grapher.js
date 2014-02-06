@@ -132,7 +132,7 @@ for (var key in devicemap) {
       "label": devicemap[key].device_name,
       "x": Math.random(),
       "y": Math.random(),
-      "size": 2
+      "size": 4
     };
 
     var newedge =    {

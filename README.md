@@ -1,10 +1,21 @@
-# Network Hub Server
+	# Network Hub Server
 
 ![webserver with MBED device hub reporting the stsus of its collection nodes](http://i.imgur.com/avniIxD.png "MBED and server")
 
-A NodeJS webserver that provides a HTTP API as well as socket connections to ARM-MBED microcontrollers located on the local network or internet. The server allows a user to interact with a bluetooth low energy broadcast network that is usong the ARM-MBED as a router.
+A NodeJS web server that provides a HTTP API as well as socket connections to ARM-MBED microcontrollers located on the local network or internet. The server allows a user to interact with a bluetooth low energy broadcast network that is using the ARM-MBED as a router.
 
 This server was written for the ARM Internet-Of-Things competition
+
+## Graph drawing 
+![sigma device viz](http://i.imgur.com/aPhalqX.png "network visualization")
+
+### Drawing
+code for drawing the graph is in /public/javascripts/grapher.js, I use sigmajs for drawing. 
+
+### Data Fetch
+
+the client browser sets up a socket connection to the web server and requests the latest device list from it. The server request is in the packet format specified below. The resulting device list is parsed into node format and passed to the sigma instance. Nodes can be added at any time and new additions can be viewed by refresh. later this will be done live by polling the web server every so often for updates and re-rendering the graph. but later.
+
 
 ## HTTP API Structure
 
@@ -48,7 +59,7 @@ Sockets use a packet format to transport data;
 }
 ```
 
-#### TYPE : UPDATE | RESPONSE | REQUEST
+#### TYPE : UPDATE | RESPONSE | REQUEST | SYNC
 Type defines the overall purpose of the request, request and response are self explanatory. UPDATE will apply to the repeated calls the MBED makes when checking for updates on node information, as well as repeated client checks for responses to data requests (such as sensor data requests)
 
 #### ORIGIN : SERVER | HUB | CLIENT
@@ -79,7 +90,6 @@ the app will run at localhost:3000
 ## MBED Code
 
 the file main.cpp contains the basic code for the MBED microcontroller so it can communicate with the server over ethernet, the code repository is located [here](https://mbed.org/users/ammanvedi/code/IOT_Sockets/)
-
 
 
 
