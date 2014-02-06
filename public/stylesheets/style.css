@@ -9,6 +9,14 @@ body {
 	background-color: #339DFF;
 }
 
+#container{
+	max-width: 400px;
+    height: 400px;
+    margin: auto;
+    background-color: #81CF2D;
+
+}
+
 #navbar h2{
 	font: 13px "Lucida Grande", Helvetica, Arial, sans-serif;
 	padding:0px;

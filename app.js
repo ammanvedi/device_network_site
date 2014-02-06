@@ -117,6 +117,21 @@ wss.on('connection', function (ws) {
 
         }
 
+        if ((MSG.TYPE == 'SYNC') && (MSG.ORIGIN == 'CLIENT')) {
+            console.log('got client connect!!!!!!!!!')
+
+
+            var syncres = new Object();
+
+            syncres['TYPE'] = 'UPDATERESPONSE';
+            syncres['ORIGIN'] = 'SERVER';
+            syncres['ID'] = 'N/A';
+            syncres['DATA'] = Device_Map;
+            syncres['STATUS'] = 1;
+
+            ws.send(JSON.stringify(syncres));
+        }
+
     });
 
 });
@@ -139,6 +154,12 @@ app.post('/hubconnect', function (req, res) {
 
 
 });
+
+app.get('/graph', function (req, res) {
+
+    res.render('graph');
+
+    });
 
 app.get('/update_device', function (req, res) {
 

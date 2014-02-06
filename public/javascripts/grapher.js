@@ -1,13 +1,8 @@
 window.onload = function () {
 
-	var fruit_div = document.getElementById('fruit_update');
-	var price = document.getElementById('price_box');
-	var fruit = document.getElementById('fruit_select');
-	var addbtn = document.getElementById('add_fruit_btn');
-	var clearbtn = document.getElementById('clear_fruit_btn');
-	var dataset = document.getElementById('dataset');
-	var fullstring = '{';
-	var devices = new Object();
+	console.log('grapher is working...');
+
+		var devices = new Object();
 
 	var graph = {
   "nodes": [
@@ -55,24 +50,7 @@ window.onload = function () {
 
 
 
-	addbtn.addEventListener('click', function (evt) {
-		var partial = fruit.value + ':' + price.value + ';';
-
-		fullstring += partial;
-
-		dataset.value = fullstring + '}';
-
-		console.log('the value for fruit is ' + fruit.value );
-		console.log('the value for fruit is ' + fruit.value );
-	});
-
-	clearbtn.addEventListener('click', function (evt) {
-
-		dataset.value = '';
-
-	});
-
- 	/*var socket;  
+	var socket;  
     var host = "ws://localhost:8080/";  
     var socket = new WebSocket(host);  
   
@@ -116,9 +94,11 @@ window.onload = function () {
   
     } catch(exception){  
          message('<p>Error'+exception);  
-    }  */
+    }  
 
-/*function initGraph(graph_s){
+
+
+function initGraph(graph_s){
 	    var hub =   {
       "id": "HUB",
       "label": "HUB",
@@ -170,7 +150,7 @@ for (var key in devicemap) {
 
 console.log(graph);
 
-}*/
+}
 
 
 
