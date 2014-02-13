@@ -1,10 +1,10 @@
 # Network Hub Server
 
-### /network?update_id<someid>
+### /network?update_id=(someid)
 
 ![client side interaction with single nodes on the network](http://i.imgur.com/usr5Z6U.png "changing node data from the client side")
 
-### /network?hub_id=<some hub id>
+### /network?hub_id=(some hub id)
 
 ![a more abstract interface for viewing the network state](http://i.imgur.com/QdTwnls.png "MBED and server")
 
