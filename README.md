@@ -1,10 +1,10 @@
 # Network Hub Server
 
-### /update_device
+### /network?update_id<someid>
 
-![webserver with MBED device hub reporting the stsus of its collection nodes](http://i.imgur.com/avniIxD.png "MBED and server")
+![client side interaction with single nodes on the network](http://i.imgur.com/usr5Z6U.png "changing node data from the client side")
 
-### /network (under dev)
+### /network?hub_id=<some hub id>
 
 ![a more abstract interface for viewing the network state](http://i.imgur.com/QdTwnls.png "MBED and server")
 

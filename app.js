@@ -211,7 +211,7 @@ app.get('/network', function (req, res) {
 
 
 
-app.post('/update_decvice', function (req, res) {
+app.post('/update_device', function (req, res) {
 
     var update_document = {
         device_id: req.query.update_id,
