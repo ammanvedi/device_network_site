@@ -34,7 +34,7 @@ body {
 }
 
 #network_info h1{
-	font-family: 'Alegreya Sans SC', sans-serif;
+	/*font-family: 'Alegreya Sans SC', sans-serif;*/
 	font-size: 13px;
 	font-weight: 700;
 	cursor: pointer;
@@ -43,7 +43,7 @@ body {
 }
 
 #network_info h2{
-	font-family: 'Alegreya Sans SC', sans-serif;
+	/*font-family: 'Alegreya Sans SC', sans-serif;*/
 	font-size: 16px;
 	font-weight: 300;
 	margin: 0px;
@@ -66,7 +66,7 @@ body {
 }
 
 #sidebar h3{
-	font-family: 'Alegreya Sans SC', sans-serif;
+	/*font-family: 'Alegreya Sans SC', sans-serif;*/
 	font-size: 13px;
 	font-weight: 700;
 	padding-left: 20px;
@@ -76,7 +76,7 @@ body {
 }
 
 #sidebar h4{
-	font-family: 'Alegreya Sans SC', sans-serif;
+	/*font-family: 'Alegreya Sans SC', sans-serif;*/
 	font-size: 12px;
 	font-weight: 300;
 	margin: 0px;
@@ -94,12 +94,12 @@ body {
 
 #contain_network{
 	float: left;
-	width: 500px;
+	width: 700px;
 	height: 100%;
 }
 
 #navbar h1{
-	font-family: 'Alegreya Sans SC', sans-serif;
+	/*font-family: 'Alegreya Sans SC', sans-serif;*/
 	font-size: 16px;
 	font-weight: 400;
 	color: white;
@@ -109,8 +109,6 @@ body {
 	opacity: 0.7;
 	transition:1s;
 	cursor: pointer;
-
-
 }
 
 #navbar h1:hover{
@@ -137,22 +135,86 @@ body {
 
 }
 
-#device_hub_holder{
-		font-family: 'Alegreya Sans SC', sans-serif;
-	font-size: 16px;
-	font-weight: 400;
-	width: 60%;
-	border-left-style: solid;
-	border-left-width: 10px;
-	border-left-color: #7A2767;
-	padding-left: 10px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	margin-left: 50px;
-	margin-top:50px;
-	background-color: #ECE9D8;
+#hub_core_data{
+	float: left;
+	background-color: #27AE60;
+	width: auto;
+	display: block;
+	padding: 5px;
+	padding-right: 19px;
+	padding-left: 19px;
+	padding-top: 9px;
+	height: 100px;
+}
+
+#hub_aux_data {
+	float: left;
+}
+
+
+#hub_aux_data p{
+	margin: 0px;
+	padding-top: 10px;
+	margin-left: 10px;
+
 
 }
+
+#device_hub_holder{
+		/*font-family: 'Alegreya Sans SC', sans-serif;*/
+	font-size: 16px;
+	font-weight: 400;
+	width: 90%;
+	overflow: hidden;
+	margin-left: 20px;
+	margin-top:20px;
+	background-color: #2C3E50;
+	color: white;
+	opacity: 0.92;
+	margin-bottom: 20px;
+	height: 70px;
+
+}
+
+.device_aux_data{
+	height: 50px;
+	float: left;
+
+}
+
+.device_expand{
+	height: 50px;
+	float: right;
+}
+
+.device_core_data{
+	height: 50px;
+	float: left;
+
+}
+
+.device_aux_data p{
+	margin: 0px;
+}
+
+.device_core_data p{
+	margin: 0px;
+}
+
+.device_abs{
+			/*font-family: 'Alegreya Sans SC', sans-serif;*/
+	font-size: 16px;
+	font-weight: 400;
+	width: 90%;
+	margin-left: 20px;
+	background-color: #fff;
+	color: black;
+	opacity: 0.92;
+	height: 40px;
+	clear: both;
+
+}
+
 
 #fruit_update{
 	width: 100%;

@@ -11,37 +11,20 @@ block content
 		h3 ACTIONS
 		h4 UPDATE
 		h4 GRAPH NETWORK
-
 	#contain_network
 		#device_hub_holder
-			h1 Hub Information for device #{DEVICEID}
-			p Name : 
-			p ID : 
-			p MAC Address : 
-			p IP Address : 
-		#device_update_holder
-			h1 Update Device information
-			p device 
-			form(method="post" target="/update_device" class="deviceform")
-				label(for="dev_name") Nickname : 
-				input(type="text" name="dev_name" value= name)
-				br
-				label(for="dev_dataset") Display String : 
-				input#dataset(type="text" name="dev_dataset" value= dataset)
-				br
-				#fruit_update
-					select#fruit_select
-						option(value="Apple") Apple
-						option(value="Orange") Orange
-						option(value="Apricot") Apricot
-						option(value="Kiwi") Kiwi
-					input#price_box(type="text" name="dev_fruit_price" value="$0.00")
-					input#add_fruit_btn(type="button" value="add")
-					input#clear_fruit_btn(type="button" value="clear")
-				label(for="dev_pointer") Data Pointer : 
-				input(type="text" name="dev_pointer" value= pointer)
-				br
-				label(for="dev_hub_id") Hub ID : 
-				input(type="text" name="dev_hub_id" value= hub)
-				br
-				input(type="submit" value="update")
+			#hub_core_data
+				p #{hub_id} (#{hub_name})
+			#hub_aux_data
+				p MAC : #{hub_mac_addr}
+				p IP : #{hub_ip_addr}
+		-var ob = JSON.parse(devices)
+		-for(var prop in ob)
+			.device_abs
+				.device_core_data
+					p #{ob[prop].device_id} (#{ob[prop].device_name})
+				.device_aux_data
+					p data #{ob[prop].device_dataset}
+				.device_expand
+					p +
+
