@@ -161,13 +161,39 @@ app.get('/graph', function (req, res) {
 
     });
 
-app.get('/update_device', function (req, res) {
+app.get('/network', function (req, res) {
+
+    if(req.query.update_id == undefined){
+        //if no update id has been defined then pass all node
+        //data to the client system
+        console.log('LODOWLFOEFEUBFIBFI');
+
+        var dev = Device_Map;
+    //res.send(JSON.stringify(result));
+    res.render('network',{
+        hubcount: Object.keys(Hub_Map).length,
+        devcount: Object.keys(Device_Map).length,
+/*      DEVICEID: dev.device_id,
+        name: dev.device_name,
+        dataset: dev.device_dataset,
+        pointer: dev.device_pointer,
+        hub: dev.device_hub_id,
+        hub_name: Hub_Map[dev.device_hub_id].hub_name,
+        hub_id: Hub_Map[dev.device_hub_id].hub_id,
+        hub_mac_addr: Hub_Map[dev.device_hub_id].hub_mac_addr,
+        hub_ip_addr: Hub_Map[dev.device_hub_id].hub_ip_addr
+*/
+    });
+
+
+    }else{
+
 
     var dev = Device_Map[req.query.update_id];
     //res.send(JSON.stringify(result));
     res.render('update', {
-        hubcount: Object.keys(Hub_Map).length,
-        devcount: Object.keys(Device_Map).length,
+        hubcount: Object.keys(Hub_Map).length + '',
+        devcount: Object.keys(Device_Map).length + '',
         DEVICEID: dev.device_id,
         name: dev.device_name,
         dataset: dev.device_dataset,
@@ -180,11 +206,16 @@ app.get('/update_device', function (req, res) {
     });
 
 
+    }
+
+
 
 });
 
 
-app.post('/update_device', function (req, res) {
+
+
+app.post('/network', function (req, res) {
 
     var update_document = {
         device_id: req.query.update_id,
