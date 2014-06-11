@@ -1,30 +1,32 @@
 extends layout
 
 block content
-	#navbar
-		h1 sensornet
-	#sidebar
-		#network_info
-			h1 Overview
-			h2 HUBS #{hubcount}
-			h2  NODES #{devcount} 
-		h3 ACTIONS
-		h4 UPDATE
-		h4 GRAPH NETWORK
+	.ui.inverted.menu
+		a.item(href="/")
+			i.home.icon
+			|Beacon
+		a.item(href="/graph")
+			i.fork.code.icon
+			|Graph
+		a.active.item(href="/network")
+			i.rss.icon
+			|Network
+	#map
+		#mapholder
+			img#floorplanimg.fullop(src="images/fp.png")
+			img#floorplanimg.halfop(src="images/fp.png")
+			img#floorplanimg.lowop(src="images/fp.png")
+			img#floorplanimg.noop(src="images/fp.png")
+			#bigcirc
+			#smlcirc
 	#contain_network
-		#device_hub_holder
-			#hub_core_data
-				p #{hub_id} (#{hub_name})
-			#hub_aux_data
-				p MAC : #{hub_mac_addr}
-				p IP : #{hub_ip_addr}
-		-var ob = JSON.parse(devices)
+		-var ob = devices
 		-for(var prop in ob)
 			.device_abs
 				.device_core_data
-					p #{ob[prop].device_id} (#{ob[prop].device_name})
+					a(href="/network?update_id="+ ob[prop].device_id) #{ob[prop].device_id} (#{ob[prop].device_name})
 				.device_aux_data
 					p data #{ob[prop].device_dataset}
 				.device_expand
-					p +
+					i.add.icon
 

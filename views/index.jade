@@ -1,5 +1,15 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to the #{title}
+	.ui.inverted.menu
+		a.active.item(href="/")
+			i.home.icon
+			|Beacon
+		a.item(href="/graph")
+			i.fork.code.icon
+			|Graph
+		a.item(href="/network")
+			i.rss.icon
+			|Network
+	#leftbar
+	#rightbar

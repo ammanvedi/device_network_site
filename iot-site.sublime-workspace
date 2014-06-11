@@ -4,6 +4,94 @@
 		"selected_items":
 		[
 			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"pa",
+				"padding-top"
+			],
+			[
+				"padding",
+				"padding"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"re",
+				"render"
+			],
+			[
+				"grap",
+				"graphdata"
+			],
+			[
+				"dev",
+				"devicemap"
+			],
+			[
+				"S",
+				"ServerPacket"
+			],
+			[
+				"Dev",
+				"Device_Map"
+			],
+			[
+				"De",
+				"Device_Map"
+			],
+			[
+				"update",
+				"update_String"
+			],
+			[
+				"o",
+				"Orange"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"border-le",
+				"border-left-width"
+			],
+			[
+				"border-lef",
+				"border-left-style"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"backgrou",
+				"background-color"
+			],
+			[
 				"upd",
 				"update_String"
 			],
@@ -12,20 +100,12 @@
 				"update_String"
 			],
 			[
-				"update",
-				"update_id"
-			],
-			[
 				"st",
 				"status"
 			],
 			[
 				"updat",
 				"updatables"
-			],
-			[
-				"re",
-				"result"
 			],
 			[
 				"id",
@@ -38,14 +118,6 @@
 			[
 				"rep",
 				"repeat"
-			],
-			[
-				"back",
-				"background-repeat"
-			],
-			[
-				"bac",
-				"background-position"
 			],
 			[
 				"graph",
@@ -76,28 +148,8 @@
 				"text-align"
 			],
 			[
-				"mar",
-				"margin-right"
-			],
-			[
-				"marg",
-				"margin-left"
-			],
-			[
 				"searc",
 				"search_results_holder"
-			],
-			[
-				"fon",
-				"font-size"
-			],
-			[
-				"font",
-				"font-weight"
-			],
-			[
-				"margin",
-				"margin-right"
 			],
 			[
 				"paren",
@@ -284,10 +336,6 @@
 				"sigInst"
 			],
 			[
-				"backgrou",
-				"background-image"
-			],
-			[
 				"border-r",
 				"border-radius"
 			],
@@ -332,10 +380,6 @@
 				"border-width"
 			],
 			[
-				"padding",
-				"padding-top"
-			],
-			[
 				"sh",
 				"shout"
 			],
@@ -351,7 +395,63 @@
 			"file": "app.js",
 			"settings":
 			{
-				"buffer_size": 6928,
+				"buffer_size": 9277,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "MBED-CODE/main.cpp",
+			"settings":
+			{
+				"buffer_size": 4076,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "MBED-CODE/mainOO.cpp",
+			"settings":
+			{
+				"buffer_size": 3112,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "MBED-CODE/btNode.h",
+			"settings":
+			{
+				"buffer_size": 652,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/stylesheets/style.css",
+			"settings":
+			{
+				"buffer_size": 3630,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "MBED-CODE/btNode.cpp",
+			"settings":
+			{
+				"buffer_size": 2716,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "MBED-CODE/device.h",
+			"settings":
+			{
+				"buffer_size": 499,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "structurenotes.txt",
+			"settings":
+			{
+				"buffer_size": 352,
 				"line_ending": "Unix"
 			}
 		},
@@ -364,10 +464,58 @@
 			}
 		},
 		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 3924,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "views/update.jade",
 			"settings":
 			{
-				"buffer_size": 364,
+				"buffer_size": 1353,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/network.jade",
+			"settings":
+			{
+				"buffer_size": 582,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/javascripts/updater.js",
+			"settings":
+			{
+				"buffer_size": 3916,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/javascripts/grapher.js",
+			"settings":
+			{
+				"buffer_size": 3224,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/graph.jade",
+			"settings":
+			{
+				"buffer_size": 41,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/layout.jade",
+			"settings":
+			{
+				"buffer_size": 329,
 				"line_ending": "Unix"
 			}
 		},
@@ -447,6 +595,8 @@
 	},
 	"file_history":
 	[
+		"/Users/user/Documents/IOT/site/public/javascripts/grapher.js",
+		"/Users/user/Documents/EC2/svr -- EC2 instance.txt",
 		"/Users/user/Documents/IOT/site/README.md",
 		"/Users/user/Documents/IOT/site/routes/index.js",
 		"/Users/user/Desktop/js-mindmap/style.css",
@@ -516,7 +666,7 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -651,7 +801,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 9,
 			"sheets":
 			[
 				{
@@ -660,15 +810,247 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6928,
+						"buffer_size": 9277,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								823,
-								823
+								5206,
+								5206
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2589.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "MBED-CODE/main.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4076,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								497,
+								497
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 144.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "MBED-CODE/mainOO.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3112,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3112,
+								3112
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 231.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "MBED-CODE/btNode.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 652,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								652,
+								652
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "public/stylesheets/style.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3630,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2480,
+								2480
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2232.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "MBED-CODE/btNode.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2716,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								352,
+								352
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "MBED-CODE/device.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 499,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								200,
+								200
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "structurenotes.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 352,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								351,
+								351
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "db/databaseInteraction.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 913,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								174,
+								174
 							]
 						],
 						"settings":
@@ -681,35 +1063,35 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "db/databaseInteraction.js",
+					"buffer": 9,
+					"file": "README.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 913,
+						"buffer_size": 3924,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								874,
-								874
+								333,
+								333
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -719,20 +1101,20 @@
 			"sheets":
 			[
 				{
-					"buffer": 2,
+					"buffer": 10,
 					"file": "views/update.jade",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 364,
+						"buffer_size": 1353,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								364,
-								364
+								676,
+								676
 							]
 						],
 						"settings":
@@ -740,14 +1122,158 @@
 							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 10.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 11,
+					"file": "views/network.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 582,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								552,
+								552
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "public/javascripts/updater.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3916,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1985,
+								1985
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 760.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "public/javascripts/grapher.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3224,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 825.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "views/graph.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 41,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								41,
+								41
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "views/layout.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 329,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								41,
+								41
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
 					"file": "views/index.jade",
 					"semi_transient": false,
 					"settings":
@@ -771,7 +1297,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 11,
 					"type": "text"
 				}
 			]

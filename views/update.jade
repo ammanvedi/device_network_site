@@ -1,47 +1,50 @@
 extends layout
 
 block content
-	#navbar
-		h1 sensornet
-	#sidebar
-		#network_info
-			h1 Overview
-			h2 HUBS #{hubcount}
-			h2  NODES #{devcount} 
-		h3 ACTIONS
-		h4 UPDATE
-		h4 GRAPH NETWORK
-
-	#contain_network
-		#device_hub_holder
-			h1 Hub Information for device #{DEVICEID}
-			p Name : #{hub_name}
-			p ID : #{hub_id}
-			p MAC Address : #{hub_mac_addr}
-			p IP Address : #{hub_ip_addr}
-		#device_update_holder
-			h1 Update Device information
-			p device #{DEVICEID}
-			form(method="post" target="/update_device" class="deviceform")
-				label(for="dev_name") Nickname : 
-				input(type="text" name="dev_name" value= name)
-				br
-				label(for="dev_dataset") Display String : 
-				input#dataset(type="text" name="dev_dataset" value= dataset)
-				br
-				#fruit_update
-					select#fruit_select
-						option(value="Apple") Apple
-						option(value="Orange") Orange
-						option(value="Apricot") Apricot
-						option(value="Kiwi") Kiwi
-					input#price_box(type="text" name="dev_fruit_price" value="$0.00")
-					input#add_fruit_btn(type="button" value="add")
-					input#clear_fruit_btn(type="button" value="clear")
-				label(for="dev_pointer") Data Pointer : 
-				input(type="text" name="dev_pointer" value= pointer)
-				br
-				label(for="dev_hub_id") Hub ID : 
-				input(type="text" name="dev_hub_id" value= hub)
-				br
-				input(type="submit" value="update")
+	.ui.inverted.menu
+		a.item(href="/")
+			i.home.icon
+			|Beacon
+		a.item(href="/graph")
+			i.fork.code.icon
+			|Graph
+		a.active.item(href="/network")
+			i.rss.icon
+			|Network
+	#leftbar
+		.ui.vertical.menu
+			a.active.teal.item
+				|Hubs
+				.ui.teal.label
+					| #{hubcount}
+			a.item
+				|Nodes
+				.ui.label
+					| #{devcount}
+	#rightbar
+		#contain_network
+			#device_hub_holder
+				h1 #{hub_name}
+				p id : #{hub_id}
+				p mac : #{hub_mac_addr}
+				p ip : #{hub_ip_addr}
+			#device_update_holder
+				h1 Update Device information
+				p device #{DEVICEID}
+				form(method="post" action="/update_device" class="deviceform")
+					label(for="dev_name") Nickname : 
+					input(type="text" name="dev_name" value= name disabled)
+					br
+					label(for="dev_IDENT") ID : 
+					input(type="text" name="dev_IDENT" value= DEVICEID )
+					br
+					label(for="dev_pointer") Data Pointer : 
+					input(type="text" name="dev_pointer" value= pointer disabled)
+					br
+					label(for="dev_hub_id") Hub ID : 
+					input(type="text" name="dev_hub_id" value= hub disabled)
+					br
+					label(for="dev_dataset") Display String : 
+					input#dataset(type="text" name="dev_dataset" value= dataset)
+					br
+					input(type="submit" value="update")

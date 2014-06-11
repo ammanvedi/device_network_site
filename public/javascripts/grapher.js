@@ -66,7 +66,6 @@ window.onload = function () {
              	ID:"DSDSDSA",
              	DATA:"",
              	STATUS:"0"
-
              };
              console.log(JSON.stringify(req));
              socket.send(JSON.stringify(req[1]));
@@ -113,10 +112,10 @@ function displaygraph(graphdata){
 
 	console.log(graphdata);
       // Instanciate sigma:
-      s = new sigma({
-        graph: graphdata,
-        container: 'container'
-      });
+//      s = new sigma({
+//        graph: graphdata,
+//        container: 'container'
+//      });
 }
 
 

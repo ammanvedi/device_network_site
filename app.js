@@ -7,7 +7,7 @@ var database = require('./db/databaseInteraction');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
-var MongoClient = require('mongodb').MongoClient;
+var MongoClient  = require('mongodb').MongoClient;
 var WebSocketServer = require('ws').Server;
 var wss = new WebSocketServer({
     port: 8080
@@ -72,7 +72,9 @@ wss.on('connection', function (ws) {
             var update_String = '';
 
             updatables.forEach(function (entry) {
+            	
                 update_String += entry.update_id + ' ' + entry.update_text;
+                console.log(update_String);
             });
 
             //define a response object
@@ -170,15 +172,10 @@ app.get('/network', function (req, res) {
 
         var dev = Device_Map;
     //res.send(JSON.stringify(result));
-    res.render('network',{
-        hubcount: Object.keys(Hub_Map).length,
-        devcount: Object.keys(Device_Map).length,
-        devices: JSON.stringify(Device_Map),
-        hub_name: Hub_Map[req.query.hub_id].hub_name,
-        hub_id: Hub_Map[req.query.hub_id].hub_id,
-        hub_mac_addr: Hub_Map[req.query.hub_id].hub_mac_addr,
-        hub_ip_addr: Hub_Map[req.query.hub_id].hub_ip_addr
-
+    res.render('network',{devices : dev,
+    hubcount: Object.keys(Hub_Map).length + '',
+    devcount: Object.keys(Device_Map).length + ''
+    
     });
 
 
@@ -214,7 +211,7 @@ app.get('/network', function (req, res) {
 app.post('/update_device', function (req, res) {
 
     var update_document = {
-        device_id: req.query.update_id,
+        device_id: req.body.dev_IDENT,
         device_name: req.body.dev_name,
         device_dataset: req.body.dev_dataset,
         device_pointer: req.body.dev_pointer,
@@ -228,11 +225,15 @@ app.post('/update_device', function (req, res) {
     } else {
         console.log('pushing data for update of ' + req.query.update_id + ' to pending stack...');
         updatables.push({
-            update_id: req.query.update_id,
+            update_id: req.body.dev_IDENT,
             update_text: req.body.dev_dataset
         });
+        //update the device in the local representation
+        Device_Map[req.query.dev_IDENT].device_dataset = req.body.dev_dataset;
+        
     }
-
+		res.redirect('/network?update_id='+req.body.dev_IDENT);
+		console.log('redirect to ' + '/network?update_id=' + req.body.dev_IDENT);
     res.end();
 
 });
